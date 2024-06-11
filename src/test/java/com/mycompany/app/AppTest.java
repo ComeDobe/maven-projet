@@ -1,32 +1,42 @@
 package com.mycompany.app;
-
+ 
 import static org.junit.Assert.assertTrue;
+ 
 import org.junit.Test;
-
-public class AppTest {
-    
+ 
+/**
+* Unit test for simple App.
+*/
+public class AppTest 
+{
+    /**
+     * Rigorous Test :-)
+     */
     @Test
-    public void testMethod1() {
-        assertTrue(true);
+    public void shouldAnswerWithTrue()
+    {
+        assertTrue( true );
     }
-
+ 
     @Test
-    public void testMethod2() {
-        assertTrue(true);
+    public void shouldAnswerWithTrue1()
+    {
+        assertTrue( false );
     }
-
+ 
     @Test
-    public void testMethod3() {
-        assertTrue(true);
+    public void shouldAnswerWithTrue2()
+    {
+        assertTrue( true );
     }
-
-    @Test
-    public void testMethod4() {
-        assertTrue(true);
+        @Test
+    public void shouldAnswerWithTrue3()
+    {
+        assertTrue( false );
     }
-
-    @Test
-    public void testMethod5() {
-        assertTrue(true);
+        @Test
+    public void shouldAnswerWithTrue4()
+    {
+        assertTrue( true );
     }
 }
