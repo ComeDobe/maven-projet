@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven 3'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ComeDobe/maven-projet.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+            post {
+                success {
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+                failure {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Simulating Deployment...'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
